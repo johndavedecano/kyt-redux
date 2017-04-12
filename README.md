@@ -40,7 +40,7 @@ import request from './helpers/request';
 const thunkMiddleware = thunk.withExtraArgument(request);
 ```
 
-request is add as an extra(third argument in our case) argument so, you will be able to use it to your actions like.
+Request is added as an extra(third argument in our case) argument so, you will be able to use it to your actions like.
 
 ```
 
