@@ -26,10 +26,10 @@ function configureStoreDev(initialState) {
 
   if (isBrowser) {
 
-    middlewares.concat(logger);
+    middlewares.push(logger);
 
     const composeWithDevToolsExtension = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
-    
+
     composed = composeWithDevToolsExtension(
       applyMiddleware(...middlewares),
     );
