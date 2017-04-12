@@ -36,6 +36,7 @@ app.use(express.static(path.join(process.cwd(), KYT.PUBLIC_DIR)));
 // Setup server side routing.
 app.get('*', (request, response) => {
   
+  const store = configureStore();
   const memoryHistory = createMemoryHistory(request.originalUrl);
   const history = syncHistoryWithStore(memoryHistory, store);
 

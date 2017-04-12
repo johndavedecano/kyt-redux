@@ -2,10 +2,16 @@
 import React, { PropTypes } from 'react';
 import Link from 'react-router/lib/Link';
 import styles from './styles.scss';
+import Helmet from 'react-helmet';
 
 function App({ children }) {
   return (
     <div>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>My KYT Powered Application</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       <i className={styles.logo} />
       <ul className={styles.nav}>
         <li className={styles.navItem}>
