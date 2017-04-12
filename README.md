@@ -30,6 +30,82 @@ The following are some of the tools included in this starter-kyt:
 
 NOTE: kyt doesn't copy devDependencies, which include redux-devtools, so make sure to install these after setup
 
+## Gotchas
+
+We use redux client and probably how are we gonna use axios. Take a look at store.js
+
+```
+import request from './helpers/request';
+
+const thunkMiddleware = thunk.withExtraArgument(request);
+```
+
+request is add as an extra(third argument in our case) argument so, you will be able to use it to your actions like.
+
+```
+
+import { normalize, schema } from 'normalizr';
+import { USERS_LOAD } from './constants';
+
+export function loadUsers(params) {
+  return (dispatch, getState, client) => {
+    return new Promise(() => {
+      dispatch({ type: USERS_LOAD });
+      client.get('https://randomuser.me/api', { params })
+        .then(response => response.data.results)
+        .then((results) => {
+          dispatch({
+            type: USERS_LOAD.SUCCESS,
+            results
+          });
+        })
+        .catch(() => {
+          dispatch({
+            type: USERS_LOAD.FAILURE
+          });
+        });
+    });
+  };
+}
+```
+
+In your reducer.
+
+```
+
+import { Map, OrderedSet } from 'immutable';
+import { USERS_LOAD } from './UserConstants';
+
+const initialState = Map({
+  result: OrderedSet(),
+  entities: Map(),
+});
+
+const Logic = {};
+
+Logic[USERS_LOAD] = (state, action) => state
+    .set('loading', true);
+
+Logic[USERS_LOAD.SUCCESS] = (state, action) => {
+  const entities = state.get('entities').mergeDeep(action.entities);
+  const result = state.get('result').concat(action.result);
+  return state
+    .set('result', result)
+    .set('entities', entities)
+    .set('loading', false);
+};
+
+Logic[USERS_LOAD.FAILURE] = (state, action) => state
+    .set('loading', false);
+
+function reducer(state = initialState, action) {
+  if (Logic[action.type] !== 'function') return state;
+  return Logic[action.type](state, action);
+}
+
+export default reducer;
+```
+
 ## TODO
 - Example of redux reducer, preferably with a thunk + fetch
 
