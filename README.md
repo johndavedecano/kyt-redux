@@ -74,7 +74,7 @@ In your reducer.
 ```
 
 import { Map, OrderedSet } from 'immutable';
-import { USERS_LOAD } from './UserConstants';
+import { USERS_LOAD } from './constants';
 
 const initialState = Map({
   result: OrderedSet(),
