@@ -32,7 +32,7 @@ NOTE: kyt doesn't copy devDependencies, which include redux-devtools, so make su
 
 ## Gotchas
 
-We use redux client and probably how are we gonna use axios. Take a look at store.js
+We use redux-thunk and probably how are we gonna use axios. Take a look at store.js
 
 ```
 import request from './helpers/request';
