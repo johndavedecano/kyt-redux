@@ -21,11 +21,15 @@ const logger = createLogger();
 function configureStoreDev(initialState) {
 
   var composed;
-  const middlewares = [thunkMiddleware, logger];
+  let middlewares = [thunkMiddleware];
   const isBrowser = ExecutionEnvironment.canUseDOM;
 
   if (isBrowser) {
+
+    middlewares.concat(logger);
+
     const composeWithDevToolsExtension = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
+    
     composed = composeWithDevToolsExtension(
       applyMiddleware(...middlewares),
     );

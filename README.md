@@ -22,6 +22,7 @@ The following are some of the tools included in this starter-kyt:
 - [Redux Thunk](https://github.com/gaearon/redux-thunk)
 - [Redux Logger](https://github.com/evgenyrodionov/redux-logger)
 - [Redux Redux Router](https://github.com/reactjs/react-router-redux)
+- [React Helmet](https://github.com/nfl/react-helmet)
 - [Reselect](https://github.com/reactjs/reselect)
 - [Normalizr](https://github.com/paularmstrong/normalizr)
 - [ImmutableJS](https://github.com/indexiatech/redux-immutablejs)
