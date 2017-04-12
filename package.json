@@ -1,0 +1,47 @@
+{
+  "name": "okgo-app",
+  "version": "1.0.0",
+  "description": "React Application for OKGO",
+  "main": "",
+  "author": "John Dave Decano<johndavedecano@gmail.com>",
+  "license": "",
+  "dependencies": {
+    "axios": "^0.16.1",
+    "babel-preset-kyt-react": "0.2.0",
+    "compression": "1.6.2",
+    "exenv": "^1.2.1",
+    "express": "4.14.0",
+    "immutable": "^3.8.1",
+    "kyt": "^0.5.3",
+    "lodash": "^4.17.4",
+    "moment": "^2.18.1",
+    "normalizr": "^3.2.2",
+    "react": "15.3.0",
+    "react-dom": "15.3.0",
+    "react-redux": "^5.0.4",
+    "react-router": "2.6.1",
+    "react-router-redux": "^4.0.8",
+    "redux": "^3.6.0",
+    "redux-define": "^1.1.0",
+    "redux-logger": "^3.0.1",
+    "redux-thunk": "^2.2.0",
+    "reselect": "^3.0.0"
+  },
+  "devDependencies": {
+    "enzyme": "2.4.1",
+    "react-addons-test-utils": "15.3.0"
+  },
+  "scripts": {
+    "dev": "kyt dev",
+    "build": "kyt build",
+    "start": "node build/server/main.js",
+    "proto": "kyt proto",
+    "test": "kyt test",
+    "test-watch": "kyt test -- --watch",
+    "test-coverage": "kyt test -- --coverage",
+    "lint": "npm run lint-script && npm run lint-style",
+    "lint-script": "kyt lint-script",
+    "lint-style": "kyt lint-style",
+    "kyt:help": "kyt --help"
+  }
+}
